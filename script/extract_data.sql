@@ -34,7 +34,7 @@ SELECT
     MAX(CASE WHEN indicator = 'SE.TER.ENRR' THEN value END) AS school_enrollment_tertiary
 FROM combined_data
 WHERE
-    economy IN ('USA', 'CHN', 'IND') -- Add more countries of interest here, e.g. ('USA', 'CHN', 'IND')
+    economy IN ('CHN', 'IND', 'BRA', 'RUS', 'ZAF', 'IRN', 'ETH', 'ARE') -- Add more countries of interest here, e.g. ('USA', 'CHN', 'IND')
     AND year BETWEEN 1960 AND 2023 -- Replace with desired year range
 GROUP BY
     economy, year
