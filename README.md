@@ -30,20 +30,22 @@ This section describes the preprocessing workflow for the dataset. The data orig
 - Each unique indicator is converted into a separate column.
 - The final dataset includes nine indicator-value pairs as individual columns.
 - Each row represents a unique economy and year combination.
-
-#### 6. Merging
 - Data for each economy and year is grouped together.
 - For each indicator, the maximum value (if duplicates exist) is selected to maintain consistency.
 
-#### 7. Final Output
+#### 6. Final Output
 - The preprocessed dataset includes the following columns:
   - **`economy`**: The country or economy name.
   - **`year`**: The numeric year of the data.
   - **Nine Indicator-Value Pairs**: Each indicator is represented by a separate column, along with its value.
-- The final dataset is saved as a structured CSV file (`result.csv`) for analysis.
+- Example output:
 
 | economy | year | Indicator_1 | Indicator_2 | Indicator_3 | ... | Indicator_9 |
 |---------|------|-------------|-------------|-------------|-----|-------------|
 | USA     | 2017 | 95.3        | 4.5         | 102.1       | ... | 87.6        |
 | USA     | 2018 | 96.1        | 4.8         | 104.5       | ... | 88.2        |
 | CAN     | 2017 | 93.7        | 4.2         | 100.2       | ... | 85.3        |
+
+
+#### 7. Reproduction
+Run the `script/data_preprocess.ipynb` script for the clean dataset. The final dataset is saved as a structured CSV file (`data/clean_data.csv`) for further analysis. To change country of interest and timespan, make corresponding adjustments in the `script/extract_data.sql` file.
