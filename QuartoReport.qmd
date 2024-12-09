@@ -1,118 +1,54 @@
 ---
-title: "QTM 350 Final Project"
+title: "QTM 350 Final Project: "
 author: "Olivia Moody, Minsol Kim, and Simon Liu"
 date: "12-08,2024"
 date-format: "MMMM D, YYYY"
-bibliography: references.bib
 format: 
   html: default
   pdf: default
 ---
-```{python}
-#| echo: false
-import pandas as pd
-import matplotlib.pyplot as plt
-```
-```{python}
-#| echo: false
-wdi = pd.read_csv('/Users/oliviamoody/Documents/GitHub/qtm350-assignment5/wdi.csv')
-
-#Brunei is not in WDI
-SouthEastAsia_wdi=wdi.query("(country==['Singapore','Malaysia','Indonesia','Viet Nam','Lao PDR','Thailand','Myanmar','Philippines','Cambodia'])")
-```
-
 # Head Title
+By Olivia Moody (2519203), Simon Liu, Minsol Kim
 
-## Subtitle
-text
+## Introduction
+description of topic and research question
+summary of main findings
 
-## Subtitle
-text
+## Data Description
+Clear introduction of dataset and context
+![](figures/GDP_per_Capita_Over_Time_for_All_Economies.png){width=100%}
 
-```{python}
-#| echo: false
-#| 
-total_population_sum = SouthEastAsia_wdi['total_population'].sum()
-print(total_population_sum)
-```
-```{python}
-#| echo: false
-table_data = {
-    "Country": [
-        "Malaysia", 
-        "Cambodia", 
-        "Indonesia", 
-        "Myanmar", 
-        "Singapore", 
-        "Thailand", 
-        "Laos", 
-        "Philippines", 
-        "Vietnam",
-        "Total"
-    ],
-    "Population": [
-        33938221,
-        16767842,
-        275501339,
-        54179306,
-        5637022,
-        71697030,
-        7529475,
-        115559009,
-        98186856,
-        678996100
-    ]
-}
+### Data Merging
+![](documentation/Entity_Relationship_Diagram.png){width=100%}
 
-df = pd.DataFrame(table_data)
+### Data Cleaning and Pre-processing Procedures
 
-df.style.set_caption("Population by Country").set_table_attributes('id="population-table"')
-```
+### Key Variables
 
-text
 
-```{python}
-#| echo: false
+## Data Analysis
+Interpretation of main results and trends 
+Well formatted tables and plots
 
-plt.figure(figsize=(10, 6))
-plt.bar(SouthEastAsia_wdi['country'], SouthEastAsia_wdi['total_population'], color='skyblue')
-plt.title('Population of South East Asia by Country')
-plt.xlabel('Country')
-plt.ylabel('Total Population')
-plt.xticks(rotation=45)
-plt.grid(axis='y')
-plt.savefig('SEA_Population.png', format='png', dpi=300)  
-plt.figtext(0.5, -0.05, 'Source: World Development Indicators', ha='center', va='center', fontsize=10)
-plt.show()
-```
+### The Economic Story: Tracking Unemployment and Inflation Rate to GDP Growth Rate
 
-## subtitle
-text
-```{python}
-#| echo: false
-plt.figure(figsize=(10, 6))
-plt.scatter(SouthEastAsia_wdi['gdp_per_capita'], SouthEastAsia_wdi['life_expectancy'], alpha=0.7)
-plt.title('The Relationship of GDP Per Capita and Life Expectancy in South East Asia')
-plt.xlabel('GDP Per Capita ($)')
-plt.ylabel('Life Expectancy (years)')
-plt.xlim(0, 15000)
-plt.grid(True)
-plt.savefig('GDP_LifeExpect_SEA.png', format='png', dpi=300) 
-plt.figtext(0.5, -0.05, 'Source: World Development Indicators', ha='center', va='center', fontsize=10) 
-plt.show()
-```
+::: {.columns}
+![](figures/Relationship_UnemploymentRate_GDPGrowthRate_DevelopingCountries.png){width=45%}
+![](figures/Relationship_UnemploymentRate_GDPGrowthRate_Developed_Countries.png){width=45%}
+:::
 
-## subtitle
-text
-```{python}
-#| echo: false
-plt.figure(figsize=(10, 6))
-plt.scatter(SouthEastAsia_wdi['measles_immunisation_rate'], SouthEastAsia_wdi['life_expectancy'], alpha=0.7)
-plt.title('The Relationship between the Measles Immunisation Rate and the Life Expectancy of People in South East Asia')
-plt.xlabel('Measles Immunisation Rate (%)')
-plt.ylabel('Life Expectancy (years)')
-plt.grid(True)
-plt.savefig('Immunisation_LifeExpect_SEA.png', format='png', dpi=300)  
-plt.figtext(0.5, -0.05, 'Source: World Development Indicators', ha='center', va='center', fontsize=10)
-plt.show()
-```
+::: {.columns}
+![](figures/Relationship_InflationRate_GDPGrowthRate_DevelopingCountries.png){width=45%}
+![](figures/Relationship_InflationRate_GDPGrowthRate_DevelopedCountries.png){width=45%}
+:::
+
+### The Education Story: Tracking Unexployment and Government Education Expenditures
+![](figures/GovernmentEducationExpenditures_UnemploymentRate_DevelopedandDeveloping.png){width=100%}
+
+### Correlation Between Education, Economy and Health Metrics 
+![](figures/CorrelationMatrix_Independent_Variables.png){width=100%}
+
+## Results and Discussion
+Reflection on findings and limitations
+
+## Conclusion
