@@ -25,7 +25,6 @@ Clear introduction of dataset and context
 
 ### Key Variables
 
-
 ## Data Analysis
 Interpretation of main results and trends 
 Well formatted tables and plots
@@ -43,7 +42,10 @@ Well formatted tables and plots
 :::
 
 ### The Education Story: Tracking Unexployment and Government Education Expenditures
-![](figures/GovernmentEducationExpenditures_UnemploymentRate_DevelopedandDeveloping.png){width=100%}
+::: {.columns}
+![](figures/GovernmentEducationExpenditures_GDPGrowthRate_Developed.png){width=45%}
+![](figures/GovernmentEducationExpenditures_GDPGrowthRate_Developing.png){width=45%}
+:::
 
 ### Correlation Between Education, Economy and Health Metrics 
 ![](figures/CorrelationMatrix_Independent_Variables.png){width=100%}
