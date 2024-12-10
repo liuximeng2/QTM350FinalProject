@@ -1,51 +1,37 @@
-# QTM350FinalProject
+# QTM350 Final Project
 
-## Data Preprocessing
+This repository contains the final project for QTM 350, focusing on data preprocessing and analysis of economic indicators across various countries and years.
 
-### Overview
-This section describes the preprocessing workflow for the dataset. The data originates from three CSV files, each containing indicators for various economies and years. The workflow combines, filters, and structures the data into a format suitable for analysis.
+## Repository Structure
 
-### Steps
+The repository is organized into the following directories and files:
 
-#### 1. Loading the Data
-- The raw data is stored in three CSV files, each containing the following columns:
-  - **`economy`**: The country or economy to which the data pertains.
-  - **`time`**: The year of the data in the format `YRXXXX` (e.g., `YR2023` for the year 2023).
-  - **`indicator`**: A unique code representing a specific measure (e.g., GDP, employment rate).
-  - **`value`**: The numeric value of the indicator for the corresponding economy and year.
+- **data/**: Contains raw and processed datasets used in the analysis.
+- **documentation/**: Includes codebook and and the entity-relationship diagram.
+- **figures/**: Stores visualizations and figures generated during the analysis.
+- **script/**: Houses scripts for data download, preprocessing, and analysis in jupyter notebook format. It also contains the SQL query for the data selection.
+- **QuartoReport.qmd**: The Quarto markdown file for the project report.
+- **QuartoReport.html**: The rendered HTML version of the project report.
 
-#### 2. Combining Data
-- All three datasets are merged into a single table using SQL. The `UNION ALL` operation is used to ensure that all rows from each file are included.
+## How to Run the Code
 
-#### 3. Extracting the Year
-- The `time` column is processed to extract the numeric year (e.g., `YR2023` → `2023`).
-- This standardizes the year format and facilitates filtering by a specific range.
+1. **Clone the Repository/Navigate to the Repo's directory**:
 
-#### 4. Filtering Data
-- Data is filtered based on:
-  - **Selected Economies**: A list of countries or economies (e.g., `USA`, `CHN`, `MEX`).
-  - **Year Range**: A specific range of years (e.g., 2017–2023).
+   ```bash
+   git clone https://github.com/liuximeng2/QTM350FinalProject.git
+   cd QTM350FinalProject
+   ```
+2. **Setup the Code Environment Dependencies**:
 
-#### 5. Pivoting Indicators
-- Each unique indicator is converted into a separate column.
-- The final dataset includes nine indicator-value pairs as individual columns.
-- Each row represents a unique economy and year combination.
-- Data for each economy and year is grouped together.
-- For each indicator, the maximum value (if duplicates exist) is selected to maintain consistency.
-
-#### 6. Final Output
-- The preprocessed dataset includes the following columns:
-  - **`economy`**: The country or economy name.
-  - **`year`**: The numeric year of the data.
-  - **Nine Indicator-Value Pairs**: Each indicator is represented by a separate column, along with its value.
-- Example output:
-
-| economy | year | Indicator_1 | Indicator_2 | Indicator_3 | ... | Indicator_9 |
-|---------|------|-------------|-------------|-------------|-----|-------------|
-| USA     | 2017 | 95.3        | 4.5         | 102.1       | ... | 87.6        |
-| USA     | 2018 | 96.1        | 4.8         | 104.5       | ... | 88.2        |
-| CAN     | 2017 | 93.7        | 4.2         | 100.2       | ... | 85.3        |
-
-
-#### 7. Reproduction
-Run the `script/data_preprocess.ipynb` script for the clean dataset. The final dataset is saved as a structured CSV file (`data/clean_data.csv`) for further analysis. To change country of interest and timespan, make corresponding adjustments in the `script/extract_data.sql` file.
+     ```bash
+    python -m venv env
+    source env/bin/activate  # On Windows, use `env\Scripts\activate`
+    pip install -r requirements.txt
+    ```
+3. **Run the code**
+   You can either activate the kernal and run the codes by blocks inside the notebook, or run the below commands:
+   ```bash
+   jupyter notebook script/data_download.ipynb
+   jupyter notebook script/data_preprocess.ipynb
+   jupyter notebook script/data_analysis.ipynb
+   ```
