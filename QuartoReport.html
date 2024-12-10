@@ -6,10 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Olivia Moody, Minsol Kim, and Simon Liu">
+<meta name="author" content="Olivia Moody (2519203), Minsol Kim (2495685), and Simon Liu (2487435)">
 <meta name="dcterms.date" content="2024-12-08">
 
-<title>QTM 350 Final Project:</title>
+<title>QTM 350 Final Project: Finding the Key to GDP Growth in Developing, Transitionary and Developed Nations</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -48,7 +48,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">QTM 350 Final Project:</h1>
+<h1 class="title">QTM 350 Final Project: Finding the Key to GDP Growth in Developing, Transitionary and Developed Nations</h1>
 </div>
 
 
@@ -58,7 +58,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Author</div>
     <div class="quarto-title-meta-contents">
-             <p>Olivia Moody, Minsol Kim, and Simon Liu </p>
+             <p>Olivia Moody (2519203), Minsol Kim (2495685), and Simon Liu (2487435) </p>
           </div>
   </div>
     
@@ -77,22 +77,131 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="head-title" class="level1">
-<h1>Head Title</h1>
-<p>By Olivia Moody (2519203), Simon Liu, Minsol Kim</p>
 <section id="introduction" class="level2">
 <h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
-<p>description of topic and research question summary of main findings</p>
+<p>description of topic and research question</p>
+<p>Are economic and educational attainment metrics correlated with increased GDP growth rate? Is this correlation found in both developed and developing countries? summary of main findings</p>
 </section>
 <section id="data-description" class="level2">
 <h2 class="anchored" data-anchor-id="data-description">Data Description</h2>
-<p>Clear introduction of dataset and context <img src="figures/GDP_per_Capita_Over_Time_for_All_Economies.png" class="img-fluid" style="width:100.0%"></p>
+<p>The data for this project originates from the public World Bank World Development Indicators database. As an organization, the World Bank seeks to provide key financial and educational assistant to in developing countries’ so that they may develop infrastructure and advance economically. In support of their mission, the organization collects reliable data from recognised international agencies and organizations to produce the database used in this project. While the World Bank has more than 1,600 indicators for 217 economies spanning as far back as 1960, we focused on only nine indicators from the years of 2000 to 2022. These nine indicators span the topics of economics, education, and population. In order to refine our research question and specify our scope, we chose to complete our analysis on five developed nations and 6 developing nations which can be shown in the table below.</p>
+<div id="eafee02d" class="cell" data-execution_count="1">
+<div class="cell-output cell-output-display" data-execution_count="1">
+<table class="dataframe table table-sm table-striped small">
+
+<thead>
+
+<tr>
+
+<th>
+Developed Countries
+</th>
+
+<th>
+Developing Countries
+</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+<tr>
+
+<td>
+United States of America
+</td>
+
+<td>
+Russia
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+Australia
+</td>
+
+<td>
+Brazil
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+United Kingdom
+</td>
+
+<td>
+China
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+Germany
+</td>
+
+<td>
+India
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+New Zealand
+</td>
+
+<td>
+South Africa
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+</td>
+
+<td>
+Ethiopia
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+</td>
+
+<td>
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+</div>
+<p>We chose these nations as their economies repersent some of the largest in the world and they take on a repersent a nuanced and wide definition of the concept of a developing and developed nation. The two specific countries we want to note in this analysis are China and Russia as they are a case example of large, rich economies that often fall under a grey zone of a transitionary economy. While many consider China and Russia developed, both do not yet meet the conditions under the United Nations to be developed. To understand this before we made our classifications, we looked plotted each countries’ GDP per capita from 1960 to now. As You can see if the following graph, Russia and China fall very similiarly historically but even still today with the other developing countries of our study. While GDP per Capita is not the only significant metric to a country’s status as developed, we wanted to illustrate and make clear our classifications and their foundings.</p>
+<p><img src="figures/GDP_per_Capita_Over_Time_for_All_Economies.png" class="img-fluid" style="width:100.0%"></p>
 <section id="data-merging" class="level3">
 <h3 class="anchored" data-anchor-id="data-merging">Data Merging</h3>
-<p><img src="documentation/Entity_Relationship_Diagram.png" class="img-fluid" style="width:100.0%"></p>
+<p>To complete our analysis we utilised SQL to extract three indicators <img src="documentation/Entity_Relationship_Diagram.png" class="img-fluid" style="width:100.0%"></p>
 </section>
 <section id="data-cleaning-and-pre-processing-procedures" class="level3">
 <h3 class="anchored" data-anchor-id="data-cleaning-and-pre-processing-procedures">Data Cleaning and Pre-processing Procedures</h3>
+<p>We wanted to look at population variables, economic variables, and health variables to see which one of these variables explain most of the changes in GDP growth rate. After exploring various variables, we realised a lot of the data for health variables are missing. Therefore, we decided to work with economic variables more extensively. We look at the relationships between unemployment rate and GDP growth rate, inflation rate and GDP growth rate, and government expenditure on education (%) and GDP growth rate more closely. Then we examine the potential for collinearity (confounding variables) using the correlation matrix of all of the independent variables. Originally, we wanted to look at data from 1960-2023, but after finding that a lot of the data are missing in the older years, we decided to focus on 2000-2022.</p>
 </section>
 <section id="key-variables" class="level3">
 <h3 class="anchored" data-anchor-id="key-variables">Key Variables</h3>
@@ -112,7 +221,9 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="the-education-story-tracking-unexployment-and-government-education-expenditures" class="level3">
 <h3 class="anchored" data-anchor-id="the-education-story-tracking-unexployment-and-government-education-expenditures">The Education Story: Tracking Unexployment and Government Education Expenditures</h3>
-<p><img src="figures/GovernmentEducationExpenditures_UnemploymentRate_DevelopedandDeveloping.png" class="img-fluid" style="width:100.0%"></p>
+<div class="columns">
+<p><img src="figures/GovernmentEducationExpenditures_GDPGrowthRate_Developed.png" class="img-fluid" style="width:45.0%"> <img src="figures/GovernmentEducationExpenditures_GDPGrowthRate_Developing.png" class="img-fluid" style="width:45.0%"></p>
+</div>
 </section>
 <section id="correlation-between-education-economy-and-health-metrics" class="level3">
 <h3 class="anchored" data-anchor-id="correlation-between-education-economy-and-health-metrics">Correlation Between Education, Economy and Health Metrics</h3>
@@ -125,7 +236,6 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="conclusion" class="level2">
 <h2 class="anchored" data-anchor-id="conclusion">Conclusion</h2>
-</section>
 </section>
 
 </main>

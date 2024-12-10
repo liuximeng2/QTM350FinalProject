@@ -1,29 +1,49 @@
 ---
-title: "QTM 350 Final Project: "
-author: "Olivia Moody, Minsol Kim, and Simon Liu"
+title: "QTM 350 Final Project: Finding the Key to GDP Growth in Developing, Transitionary and Developed Nations"
+author: "Olivia Moody (2519203), Minsol Kim (2495685), and Simon Liu (2487435)"
 date: "12-08,2024"
 date-format: "MMMM D, YYYY"
 format: 
   html: default
   pdf: default
 ---
-# Head Title
-By Olivia Moody (2519203), Simon Liu, Minsol Kim
-
 ## Introduction
 description of topic and research question
+
+Are economic and educational attainment metrics correlated with increased GDP growth rate? Is this correlation found in both developed and developing countries? 
 summary of main findings
 
 ## Data Description
-Clear introduction of dataset and context
+
+The data for this project originates from the public World Bank World Development Indicators database. As an organization, the World Bank seeks to provide key financial and educational assistant to in developing countries' so that they may develop infrastructure and advance economically. In support of their mission, the organization collects reliable data from recognised international agencies and organizations to produce the database used in this project. While the World Bank has more than 1,600 indicators for 217 economies spanning as far back as 1960, we focused on only nine indicators from the years of 2000 to 2022. These nine indicators span the topics of economics, education, and population. In order to refine our research question and specify our scope, we chose to complete our analysis on five developed nations and 6 developing nations which can be shown in the table below. 
+```{python}
+#| echo: false
+import pandas as pd
+data = {
+    "Developed Countries": ["United States of America", "Australia", "United Kingdom", "Germany", "New Zealand"," "],
+    "Developing Countries": ["Russia", "Brazil", "China", "India", "South Africa", "Ethiopia"]
+}
+df = pd.DataFrame(data)
+df.loc[len(df)] = ["", ""]
+df.to_html(index=False)
+```
+
+We chose these nations as their economies repersent some of the largest in the world and they take on a repersent a nuanced and wide definition of the concept of a developing and developed nation. The two specific countries we want to note in this analysis are China and Russia as they are a case example of large, rich economies that often fall under a grey zone of a transitionary economy. While many consider China and Russia developed, both do not yet meet the conditions under the United Nations to be developed. To understand this before we made our classifications, we looked plotted each countries' GDP per capita from 1960 to now. As You can see if the following graph, Russia and China fall very similiarly historically but even still today with the other developing countries of our study. While GDP per Capita is not the only significant metric to a country's status as developed, we wanted to illustrate and make clear our classifications and their foundings.
+
 ![](figures/GDP_per_Capita_Over_Time_for_All_Economies.png){width=100%}
 
 ### Data Merging
+
+To complete our analysis we utilised SQL to extract four economic indicators, three health indicators and three population indicators from the World Bank's database. The following entity relationship diagram shows this extraction and the usage of economy as a primary key amongst them. 
+
 ![](documentation/Entity_Relationship_Diagram.png){width=100%}
 
 ### Data Cleaning and Pre-processing Procedures
+While we extracted population variables, economic variables, and health variables to evaluate variables most correlated with changes in GDP growth rate over time, we quickly found in data cleaning that certain variables were less usable than others. Specifically in developing countries, the health and educational metrics often did not include enough or completed time series data to preform our analysis. As a result,  we relied on a smaller set of key variables which had statistical power. Specifically, we decided to focus on the relationship between unemployment rate, inflation rate, and government expenditure on education (%) to GDP growth rate. Then we examine the potential for collinearity (confounding variables) using the correlation matrix of all of the independent variables.
 
 ### Key Variables
+The key variables relied upon in this paper  
+
 
 ## Data Analysis
 Interpretation of main results and trends 
