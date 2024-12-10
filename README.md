@@ -1,6 +1,10 @@
 # QTM350 Final Project
 
-This repository contains the final project for QTM 350, focusing on data preprocessing and analysis of economic indicators across various countries and years.
+This repository contains the final project for QTM 350. Our group members are: Minsol Kim; Olivia Moody; Simon Liu.
+
+## Project Outline
+
+Our project leverages the World Bank's extensive dataset of economic and population indicators to analyze and compare trends between developed and developing countries. By exploring key indicators such as GDP per capita, life expectancy, population growth, education levels, and healthcare access, we aim to uncover patterns and relationships that differentiate or connect the two groups. Through statistical models, we will identify significant correlations and causal relationships, providing insights into how economic policies and demographic factors interact across varying stages of development. This project will contribute to understanding global disparities and inform strategies for sustainable growth and social equity.
 
 ## Repository Structure
 
