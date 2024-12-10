@@ -1,51 +1,63 @@
-# QTM350FinalProject
+# **QTM 350 Final Project**
 
-## Data Preprocessing
+### **Team Members:**  
+**Minsol Kim** | **Olivia Moody** | **Simon Liu**
 
-### Overview
-This section describes the preprocessing workflow for the dataset. The data originates from three CSV files, each containing indicators for various economies and years. The workflow combines, filters, and structures the data into a format suitable for analysis.
+---
 
-### Steps
+## **Project Overview**  
+Our project leverages the **World Bank's extensive dataset** of economic and population indicators to analyze and compare trends between **developed** and **developing countries**.  
 
-#### 1. Loading the Data
-- The raw data is stored in three CSV files, each containing the following columns:
-  - **`economy`**: The country or economy to which the data pertains.
-  - **`time`**: The year of the data in the format `YRXXXX` (e.g., `YR2023` for the year 2023).
-  - **`indicator`**: A unique code representing a specific measure (e.g., GDP, employment rate).
-  - **`value`**: The numeric value of the indicator for the corresponding economy and year.
+By exploring key indicators such as:  
+- **GDP per capita**  
+- **Life expectancy**  
+- **Population growth**  
+- **Education levels**  
+- **Healthcare access**  
 
-#### 2. Combining Data
-- All three datasets are merged into a single table using SQL. The `UNION ALL` operation is used to ensure that all rows from each file are included.
+We aim to uncover patterns and relationships that differentiate or connect the two groups.  
 
-#### 3. Extracting the Year
-- The `time` column is processed to extract the numeric year (e.g., `YR2023` → `2023`).
-- This standardizes the year format and facilitates filtering by a specific range.
+Through **statistical models**, we will identify:  
+- Significant **correlations** and **causal relationships**  
+- Insights into how **economic policies** and **demographic factors** interact across varying stages of development  
 
-#### 4. Filtering Data
-- Data is filtered based on:
-  - **Selected Economies**: A list of countries or economies (e.g., `USA`, `CHN`, `MEX`).
-  - **Year Range**: A specific range of years (e.g., 2017–2023).
+This project contributes to a better understanding of **global disparities** and informs strategies for **sustainable growth** and **social equity**.
 
-#### 5. Pivoting Indicators
-- Each unique indicator is converted into a separate column.
-- The final dataset includes nine indicator-value pairs as individual columns.
-- Each row represents a unique economy and year combination.
-- Data for each economy and year is grouped together.
-- For each indicator, the maximum value (if duplicates exist) is selected to maintain consistency.
+---
 
-#### 6. Final Output
-- The preprocessed dataset includes the following columns:
-  - **`economy`**: The country or economy name.
-  - **`year`**: The numeric year of the data.
-  - **Nine Indicator-Value Pairs**: Each indicator is represented by a separate column, along with its value.
-- Example output:
+## **Repository Structure**
 
-| economy | year | Indicator_1 | Indicator_2 | Indicator_3 | ... | Indicator_9 |
-|---------|------|-------------|-------------|-------------|-----|-------------|
-| USA     | 2017 | 95.3        | 4.5         | 102.1       | ... | 87.6        |
-| USA     | 2018 | 96.1        | 4.8         | 104.5       | ... | 88.2        |
-| CAN     | 2017 | 93.7        | 4.2         | 100.2       | ... | 85.3        |
+The repository is organized into the following directories and files:
+
+- **[`data/`](data/)**: Contains raw and processed datasets used in the analysis.  
+- **[`documentation/`](documentation/)**: Includes the codebook and the entity-relationship diagram.  
+- **[`figures/`](figures/)**: Stores visualizations and figures generated during the analysis.  
+- **[`script/`](script/)**: Houses scripts for data download, preprocessing, and analysis in Jupyter Notebook format. Also includes the SQL query used for data selection.  
+- **[`QuartoReport.qmd`](QuartoReport.qmd)**: The Quarto Markdown file for the project report.  
+- **[`QuartoReport.html`](QuartoReport.html)**: The rendered HTML version of the project report.  
 
 
-#### 7. Reproduction
-Run the `script/data_preprocess.ipynb` script for the clean dataset. The final dataset is saved as a structured CSV file (`data/clean_data.csv`) for further analysis. To change country of interest and timespan, make corresponding adjustments in the `script/extract_data.sql` file.
+---
+
+## How to Run the Code
+
+1. **Clone the Repository/Navigate to the Repo's directory**:
+
+   ```bash
+   git clone https://github.com/liuximeng2/QTM350FinalProject.git
+   cd QTM350FinalProject
+   ```
+2. **Setup the Code Environment Dependencies**:
+
+     ```bash
+    python -m venv env
+    source env/bin/activate  # On Windows, use `env\Scripts\activate`
+    pip install -r requirements.txt
+    ```
+3. **Run the code**
+   You can either activate the kernal and run the codes by blocks inside the notebook, or run the below commands:
+   ```bash
+   jupyter notebook script/data_download.ipynb
+   jupyter notebook script/data_preprocess.ipynb
+   jupyter notebook script/data_analysis.ipynb
+   ```
