@@ -79,13 +79,14 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="introduction" class="level2">
 <h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
-<p>description of topic and research question</p>
-<p>Are economic and educational attainment metrics correlated with increased GDP growth rate? Is this correlation found in both developed and developing countries? summary of main findings</p>
+<p>As transportation, technology and media advance at breaknecking speed, the world’s economies have become significantly more interconnected and global than ever before. While many countries have been able to use these advancements to aid in their development, many others are still in transitionary or developing stages and find themselves with imbalanced imports and exports. In order evaluate economic change over time, we sought to explore the metric of GDP growth rate in developing and developed countries over time. More specifically, we wanted to answer the question: Are economic and educational attainment metrics correlated with increased GDP growth rate? Is this correlation found in both developed and developing countries? For this analysis we focused on the the relationship between unemployment rate, inflation rate, and government expenditure on education to GDP growth rate. Then we examined the potential for collinearity (confounding variables), using a correlation matrix, of all nine extracted independent economic and educational variables.</p>
+<p>Overall, we found that inflation rate was the only metric that had a positive correlation to GDP growth rate and that it was somewhat consistent on in developing and developed countries. While unemployment rate had a negative correlation to GDP growth rate for both types of economies, it had a much larger correlation for developing countries. Finally, government expenditures on education had a negative correlation with GDP Growth Rate only in developing countries but almost no correlation on average in developed countries.</p>
+<p>Predictably, we found that health indicators, such as infant mortality, life expectancy at birth, and population growth rate, were correlated highest with each other. This is because a lot of these metrics are somehow baked into one another or repersent a smaller subset of general health indicators. For instance, if infant mortality rate is high, population growth rate is bound to be affected even if births are at high levels. Economic indicators were much less correlated with each other which shows a more fickle relationship unique to every economy and time period.</p>
 </section>
 <section id="data-description" class="level2">
 <h2 class="anchored" data-anchor-id="data-description">Data Description</h2>
 <p>The data for this project originates from the public World Bank World Development Indicators database. As an organization, the World Bank seeks to provide key financial and educational assistant to in developing countries’ so that they may develop infrastructure and advance economically. In support of their mission, the organization collects reliable data from recognised international agencies and organizations to produce the database used in this project. While the World Bank has more than 1,600 indicators for 217 economies spanning as far back as 1960, we focused on only nine indicators from the years of 2000 to 2022. These nine indicators span the topics of economics, education, and population. In order to refine our research question and specify our scope, we chose to complete our analysis on five developed nations and 6 developing nations which can be shown in the table below.</p>
-<div id="eafee02d" class="cell" data-execution_count="1">
+<div id="81785ea5" class="cell" data-execution_count="1">
 <div class="cell-output cell-output-display" data-execution_count="1">
 <table class="dataframe table table-sm table-striped small">
 
@@ -197,19 +198,25 @@ Ethiopia
 <p><img src="figures/GDP_per_Capita_Over_Time_for_All_Economies.png" class="img-fluid" style="width:100.0%"></p>
 <section id="data-merging" class="level3">
 <h3 class="anchored" data-anchor-id="data-merging">Data Merging</h3>
-<p>To complete our analysis we utilised SQL to extract three indicators <img src="documentation/Entity_Relationship_Diagram.png" class="img-fluid" style="width:100.0%"></p>
+<p>To complete our analysis we utilised SQL to extract four economic indicators, three health indicators and three population indicators from the World Bank’s database. The following entity relationship diagram shows this extraction and the usage of economy as a primary key amongst them.</p>
+<p><img src="documentation/Entity_Relationship_Diagram.png" class="img-fluid" style="width:100.0%"></p>
 </section>
 <section id="data-cleaning-and-pre-processing-procedures" class="level3">
 <h3 class="anchored" data-anchor-id="data-cleaning-and-pre-processing-procedures">Data Cleaning and Pre-processing Procedures</h3>
-<p>We wanted to look at population variables, economic variables, and health variables to see which one of these variables explain most of the changes in GDP growth rate. After exploring various variables, we realised a lot of the data for health variables are missing. Therefore, we decided to work with economic variables more extensively. We look at the relationships between unemployment rate and GDP growth rate, inflation rate and GDP growth rate, and government expenditure on education (%) and GDP growth rate more closely. Then we examine the potential for collinearity (confounding variables) using the correlation matrix of all of the independent variables. Originally, we wanted to look at data from 1960-2023, but after finding that a lot of the data are missing in the older years, we decided to focus on 2000-2022.</p>
+<p>While we extracted population variables, economic variables, and health variables to evaluate variables most correlated with changes in GDP growth rate over time, we quickly found in data cleaning that certain variables were less usable than others. Specifically in developing countries, the health and educational metrics often did not include enough or completed time series data to preform our analysis. As a result, we relied on a smaller set of key variables which had statistical power.</p>
 </section>
 <section id="key-variables" class="level3">
 <h3 class="anchored" data-anchor-id="key-variables">Key Variables</h3>
+<p>The key variables relied upon in this paper were unemployment rate, inflation rate, government expenditure on education, and GDP growth rate.</p>
+<p><strong>Unemployment Rate</strong>: The unemployment rate measures the percentage of the labor force that is actively seeking but unable to find employment. Many see it as a proxy for the health of a country’s labor market and economy.</p>
+<p><strong>Inflation Rate</strong>: The inflation rate indicates the annual percentage change in the average price level of goods and services in an economy over a specific period. In other words, the inflation rate shows how the purchasing power of a country’s currency is changing over time.</p>
+<p><strong>Government Expenditure on Education</strong>: This indicator represents the government’s spending on the educational sector as a percentage of the economy’s GDP. The World Bank includes expenditures funded by international sources to the government and defines government as consisting of local, regional and central branches. Generally this measure reflects the government’s investment in human capital development.</p>
+<p><strong>GDP Growth Rate</strong>: The GDP growth rate measures the annual percentage change in a country’s gross domestic product (GDP), which indicates the overall economic growth or contraction of a country. The World Bank defines this as the sum of gross value added by all resident produces in the economy and product taxes minus subsidies otherwise not included in products’ values. It should be noted, especially for developing countries which are often depended on for natural resources and minerals, that the GDP and its growth rate does not reflect any depreciation or damage of natural resources. GDP growth rate is thought of as a key indicator of economic performance and stability.</p>
 </section>
 </section>
 <section id="data-analysis" class="level2">
 <h2 class="anchored" data-anchor-id="data-analysis">Data Analysis</h2>
-<p>Interpretation of main results and trends Well formatted tables and plots</p>
+<p>To best visualise our results we have displayed all plots of developing countries on the left and all plots of developed countries on the right.</p>
 <section id="the-economic-story-tracking-unemployment-and-inflation-rate-to-gdp-growth-rate" class="level3">
 <h3 class="anchored" data-anchor-id="the-economic-story-tracking-unemployment-and-inflation-rate-to-gdp-growth-rate">The Economic Story: Tracking Unemployment and Inflation Rate to GDP Growth Rate</h3>
 <div class="columns">
@@ -222,7 +229,7 @@ Ethiopia
 <section id="the-education-story-tracking-unexployment-and-government-education-expenditures" class="level3">
 <h3 class="anchored" data-anchor-id="the-education-story-tracking-unexployment-and-government-education-expenditures">The Education Story: Tracking Unexployment and Government Education Expenditures</h3>
 <div class="columns">
-<p><img src="figures/GovernmentEducationExpenditures_GDPGrowthRate_Developed.png" class="img-fluid" style="width:45.0%"> <img src="figures/GovernmentEducationExpenditures_GDPGrowthRate_Developing.png" class="img-fluid" style="width:45.0%"></p>
+<p><img src="figures/GovernmentEducationExpenditures_GDPGrowthRate_Developing.png" class="img-fluid" style="width:45.0%"> <img src="figures/GovernmentEducationExpenditures_GDPGrowthRate_Developed.png" class="img-fluid" style="width:45.0%"></p>
 </div>
 </section>
 <section id="correlation-between-education-economy-and-health-metrics" class="level3">

@@ -8,10 +8,13 @@ format:
   pdf: default
 ---
 ## Introduction
-description of topic and research question
 
-Are economic and educational attainment metrics correlated with increased GDP growth rate? Is this correlation found in both developed and developing countries? 
-summary of main findings
+As transportation, technology and media advance at breaknecking speed, the world's economies have become significantly more interconnected and global than ever before. While many countries have been able to use these advancements to aid in their development, many others are still in transitionary or developing stages and find themselves with imbalanced imports and exports. In order evaluate economic change over time, we sought to explore the metric of GDP growth rate in developing and developed countries over time. More specifically, we wanted to answer the question: Are economic and educational attainment metrics correlated with increased GDP growth rate? Is this correlation found in both developed and developing countries? For this analysis we focused on the the relationship between unemployment rate, inflation rate, and government expenditure on education to GDP growth rate. Then we examined the potential for collinearity (confounding variables), using a correlation matrix, of all nine extracted independent economic and educational variables.
+
+Overall, we found that inflation rate was the only metric that had a positive correlation to GDP growth rate and that it was somewhat consistent on in developing and developed countries.
+While unemployment rate had a negative correlation to GDP growth rate for both types of economies, it had a much larger correlation for developing countries. Finally, government expenditures on education had a negative correlation with GDP Growth Rate only in developing countries but almost no correlation on average in developed countries.
+
+Predictably, we found that health indicators, such as infant mortality, life expectancy at birth, and population growth rate, were correlated highest with each other. This is because a lot of these metrics are somehow baked into one another or repersent a smaller subset of general health indicators. For instance, if infant mortality rate is high, population growth rate is bound to be affected even if births are at high levels. Economic indicators were much less correlated with each other which shows a more fickle relationship unique to every economy and time period.
 
 ## Data Description
 
@@ -39,22 +42,35 @@ To complete our analysis we utilised SQL to extract four economic indicators, th
 ![](documentation/Entity_Relationship_Diagram.png){width=100%}
 
 ### Data Cleaning and Pre-processing Procedures
-While we extracted population variables, economic variables, and health variables to evaluate variables most correlated with changes in GDP growth rate over time, we quickly found in data cleaning that certain variables were less usable than others. Specifically in developing countries, the health and educational metrics often did not include enough or completed time series data to preform our analysis. As a result,  we relied on a smaller set of key variables which had statistical power. Specifically, we decided to focus on the relationship between unemployment rate, inflation rate, and government expenditure on education (%) to GDP growth rate. Then we examine the potential for collinearity (confounding variables) using the correlation matrix of all of the independent variables.
+While we extracted population variables, economic variables, and health variables to evaluate variables most correlated with changes in GDP growth rate over time, we quickly found in data cleaning that certain variables were less usable than others. Specifically in developing countries, the health and educational metrics often did not include enough or completed time series data to preform our analysis. As a result,  we relied on a smaller set of key variables which had statistical power. 
 
 ### Key Variables
-The key variables relied upon in this paper  
+The key variables relied upon in this paper were unemployment rate, inflation rate, government expenditure on education, and GDP growth rate.
 
+**Unemployment Rate**: The unemployment rate measures the percentage of the labor force that is actively seeking but unable to find employment. Many see it as a proxy for the health of a country's labor market and economy.
+
+**Inflation Rate**: The inflation rate indicates the annual percentage change in the average price level of goods and services in an economy over a specific period. In other words, the inflation rate shows how the purchasing power of a country's currency is changing over time.
+
+**Government Expenditure on Education**: This indicator represents the government's spending on the educational sector as a percentage of the economy's GDP. The World Bank includes expenditures funded by international sources to the government and defines government as consisting of local, regional and central branches. Generally this measure reflects the government’s investment in human capital development.
+
+**GDP Growth Rate**: The GDP growth rate measures the annual percentage change in a country's gross domestic product (GDP), which indicates the overall economic growth or contraction of a country. The World Bank defines this as the sum of gross value added by all resident produces in the economy and product taxes minus subsidies otherwise not included in products' values. It should be noted, especially for developing countries which are often depended on for natural resources and minerals, that the GDP and its growth rate does not reflect any depreciation or damage of natural resources. GDP growth rate is thought of as a key indicator of economic performance and stability.
 
 ## Data Analysis
-Interpretation of main results and trends 
-Well formatted tables and plots
+
+To best visualise our results we have displayed all plots of developing countries on the left and all plots of developed countries on the right. 
 
 ### The Economic Story: Tracking Unemployment and Inflation Rate to GDP Growth Rate
+
+In term of economic indicators, the first key difference in our aggregate of developing and developed economies is the range of GDP growth rate, inflation rate and unemployment rate. As you can see in both the plots below, the GDP growth rate takes on a slightly larger range for our aggregate of developing countries. The more significant trend, however is that the dispersal of points across the range is more consistently varied in developing countries than developed ones. While there is a few years of outliers in the developing countries, such as Great Britain in 2008 reaching a horrific GDP growth rate below -10%, the devloped countries over time have a much tighter dispersal to one another. We can also see this is in the error bands of the developing countries being consistently thicker than the error bands of developed countries. We can credit this to developing economies being both more unique to each other than the grouping of developed nations as well as the developing nations have more unstable economies through time. Many developing nations face more environmental diasters, as well external and internal conflict within their country lines.
+
+The correlation between unemployment and GDP growth rate is negative in both sets of economies but with a much larger correlation in developing countries. Unlike the other metrics, which had a decently similiar dispersal of the countries in each classification, South Africa (ZAF) had a consistently much higher unemployment rate than the rest of the developing countries. THis country also tended to be both much above and much below the correlation line cementing its status as a outlier in the data.
 
 ::: {.columns}
 ![](figures/Relationship_UnemploymentRate_GDPGrowthRate_DevelopingCountries.png){width=45%}
 ![](figures/Relationship_UnemploymentRate_GDPGrowthRate_Developed_Countries.png){width=45%}
 :::
+
+
 
 ::: {.columns}
 ![](figures/Relationship_InflationRate_GDPGrowthRate_DevelopingCountries.png){width=45%}
@@ -63,8 +79,8 @@ Well formatted tables and plots
 
 ### The Education Story: Tracking Unexployment and Government Education Expenditures
 ::: {.columns}
-![](figures/GovernmentEducationExpenditures_GDPGrowthRate_Developed.png){width=45%}
 ![](figures/GovernmentEducationExpenditures_GDPGrowthRate_Developing.png){width=45%}
+![](figures/GovernmentEducationExpenditures_GDPGrowthRate_Developed.png){width=45%}
 :::
 
 ### Correlation Between Education, Economy and Health Metrics 
