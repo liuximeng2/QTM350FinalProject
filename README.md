@@ -29,12 +29,13 @@ This project contributes to a better understanding of **global disparities** and
 
 The repository is organized into the following directories and files:
 
-- **`data/`**: Contains raw and processed datasets used in the analysis.  
-- **`documentation/`**: Includes the codebook and the entity-relationship diagram.  
-- **`figures/`**: Stores visualizations and figures generated during the analysis.  
-- **`script/`**: Houses scripts for data download, preprocessing, and analysis in Jupyter Notebook format. Also includes the SQL query used for data selection.  
-- **`QuartoReport.qmd`**: The Quarto Markdown file for the project report.  
-- **`QuartoReport.html`**: The rendered HTML version of the project report.  
+- **[`data/`](data/)**: Contains raw and processed datasets used in the analysis.  
+- **[`documentation/`](documentation/)**: Includes the codebook and the entity-relationship diagram.  
+- **[`figures/`](figures/)**: Stores visualizations and figures generated during the analysis.  
+- **[`script/`](script/)**: Houses scripts for data download, preprocessing, and analysis in Jupyter Notebook format. Also includes the SQL query used for data selection.  
+- **[`QuartoReport.qmd`](QuartoReport.qmd)**: The Quarto Markdown file for the project report.  
+- **[`QuartoReport.html`](QuartoReport.html)**: The rendered HTML version of the project report.  
+
 
 ---
 
